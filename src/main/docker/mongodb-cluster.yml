@@ -1,0 +1,16 @@
+version: '2'
+services:
+    test51-mongodb:
+        image: mongo:3.2.10
+        ports:
+            - "27017:27017"
+        command: mongos --configdb test51-mongodb-config
+    test51-mongodb-node:
+        build:
+            context: .
+            dockerfile: mongodb/MongoDB.Dockerfile
+        command: mongod --replSet rs1 --noprealloc --smallfiles
+    test51-mongodb-config:
+        image: mongo:3.2.10
+        container_name: test51-mongodb-config
+        command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db
