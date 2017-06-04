@@ -1,16 +1,26 @@
 package com.pharma.config.dbmigrations;
 
-import com.pharma.domain.Authority;
-import com.pharma.domain.User;
-import com.pharma.security.AuthoritiesConstants;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.time.Instant;
+
+import org.h2.engine.DbObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
-import org.springframework.data.mongodb.core.MongoTemplate;
-
-import java.time.Instant;
-import java.util.Arrays;
-import java.util.Collections;
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
+import com.pharma.domain.Authority;
+import com.pharma.domain.User;
+import com.pharma.security.AuthoritiesConstants;
 
 /**
  * Creates the initial database setup
@@ -18,7 +28,9 @@ import java.util.Collections;
 @ChangeLog(order = "001")
 public class InitialSetupMigration {
 
-    @ChangeSet(order = "01", author = "initiator", id = "01-addAuthorities")
+
+
+	@ChangeSet(order = "01", author = "initiator", id = "01-addAuthorities")
     public void addAuthorities(MongoTemplate mongoTemplate) {
         Authority adminAuthority = new Authority();
         adminAuthority.setName(AuthoritiesConstants.ADMIN);
@@ -91,6 +103,28 @@ public class InitialSetupMigration {
         userUser.setCreatedDate(Instant.now());
         userUser.getAuthorities().add(userAuthority);
         mongoTemplate.save(userUser);
+    }
+    
+    
+	@ChangeSet(order = "03", author = "initiator", id = "03-addMetadata")
+    public void addMetadata(MongoTemplate mongoTemplate) throws Exception {
+    	JSONParser parser = new JSONParser();
+		try(InputStream is=this.getClass().getClassLoader().getResourceAsStream("scripts/salts.json")) {
+	    	  Reader reader = new InputStreamReader(is);
+			   JSONArray jsonArray=(JSONArray )parser.parse(reader);
+			   DB db=mongoTemplate.getDb();
+		       DBCollection salt= db.getCollection("salt");
+		       DBObject dbObjects[]=new DBObject[jsonArray.size()];
+		       
+		       for(int i=0;i<jsonArray.size() ;i++){
+		    	  dbObjects[i]=(DBObject)JSON.parse(jsonArray.get(i).toString());
+		       }
+		    salt.insert(dbObjects);
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new Exception("error in 03-addMetadata script");
+		}
+       
     }
 
 }
