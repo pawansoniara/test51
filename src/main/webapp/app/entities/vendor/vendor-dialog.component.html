@@ -1,0 +1,169 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myVendorLabel">Create or edit a Vendor</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!vendor.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="vendor.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="vendor.name"
+            required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_companyName">Company Name</label>
+            <input type="text" class="form-control" name="companyName" id="field_companyName"
+                [(ngModel)]="vendor.companyName"
+            required />
+            <div [hidden]="!(editForm.controls.companyName?.dirty && editForm.controls.companyName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.companyName?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                [(ngModel)]="vendor.address"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                [(ngModel)]="vendor.city"
+            required />
+            <div [hidden]="!(editForm.controls.city?.dirty && editForm.controls.city?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.city?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_state">State</label>
+            <input type="text" class="form-control" name="state" id="field_state"
+                [(ngModel)]="vendor.state"
+            required />
+            <div [hidden]="!(editForm.controls.state?.dirty && editForm.controls.state?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.state?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pincode">Pincode</label>
+            <input type="text" class="form-control" name="pincode" id="field_pincode"
+                [(ngModel)]="vendor.pincode"
+            required />
+            <div [hidden]="!(editForm.controls.pincode?.dirty && editForm.controls.pincode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.pincode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_mobile">Mobile</label>
+            <input type="text" class="form-control" name="mobile" id="field_mobile"
+                [(ngModel)]="vendor.mobile"
+            required />
+            <div [hidden]="!(editForm.controls.mobile?.dirty && editForm.controls.mobile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.mobile?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_bioDlNo">Bio Dl No</label>
+            <input type="text" class="form-control" name="bioDlNo" id="field_bioDlNo"
+                [(ngModel)]="vendor.bioDlNo"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nonBioDlNo">Non Bio Dl No</label>
+            <input type="text" class="form-control" name="nonBioDlNo" id="field_nonBioDlNo"
+                [(ngModel)]="vendor.nonBioDlNo"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_estb">Estb</label>
+            <input type="text" class="form-control" name="estb" id="field_estb"
+                [(ngModel)]="vendor.estb"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_certification">Certification</label>
+            <input type="text" class="form-control" name="certification" id="field_certification"
+                [(ngModel)]="vendor.certification"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_webSite">Web Site</label>
+            <input type="text" class="form-control" name="webSite" id="field_webSite"
+                [(ngModel)]="vendor.webSite"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_aboutCompany">About Company</label>
+            <input type="text" class="form-control" name="aboutCompany" id="field_aboutCompany"
+                [(ngModel)]="vendor.aboutCompany"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="vendor.email"
+            required />
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_category">Category</label>
+            <input type="text" class="form-control" name="category" id="field_category"
+                [(ngModel)]="vendor.category"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_tin">Tin</label>
+            <input type="text" class="form-control" name="tin" id="field_tin"
+                [(ngModel)]="vendor.tin"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_alternateMobile">Alternate Mobile</label>
+            <input type="text" class="form-control" name="alternateMobile" id="field_alternateMobile"
+                [(ngModel)]="vendor.alternateMobile"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

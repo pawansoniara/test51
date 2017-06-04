@@ -1,0 +1,146 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProductLabel">Create or edit a Product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!product.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="product.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_productName">Product Name</label>
+            <input type="text" class="form-control" name="productName" id="field_productName"
+                [(ngModel)]="product.productName"
+            required />
+            <div [hidden]="!(editForm.controls.productName?.dirty && editForm.controls.productName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.productName?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_saltName">Salt Name</label>
+            <input type="text" class="form-control" name="saltName" id="field_saltName"
+                [(ngModel)]="product.saltName"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="product.description"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_packagingType">Packaging Type</label>
+            <input type="text" class="form-control" name="packagingType" id="field_packagingType"
+                [(ngModel)]="product.packagingType"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unitPrice">Unit Price</label>
+            <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                [(ngModel)]="product.unitPrice"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_quntity">Quntity</label>
+            <input type="number" class="form-control" name="quntity" id="field_quntity"
+                [(ngModel)]="product.quntity"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_category">Category</label>
+            <input type="text" class="form-control" name="category" id="field_category"
+                [(ngModel)]="product.category"
+            required />
+            <div [hidden]="!(editForm.controls.category?.dirty && editForm.controls.category?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.category?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_composition">Composition</label>
+            <input type="text" class="form-control" name="composition" id="field_composition"
+                [(ngModel)]="product.composition"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_formulation">Formulation</label>
+            <input type="text" class="form-control" name="formulation" id="field_formulation"
+                [(ngModel)]="product.formulation"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_imageId">Image Id</label>
+            <input type="text" class="form-control" name="imageId" id="field_imageId"
+                [(ngModel)]="product.imageId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ratings">Ratings</label>
+            <input type="number" class="form-control" name="ratings" id="field_ratings"
+                [(ngModel)]="product.ratings"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_eta">Eta</label>
+            <div class="d-flex">
+                <input id="field_eta" type="datetime-local" class="form-control" name="eta" [(ngModel)]="product.eta"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_timeRequired">Time Required</label>
+            <input type="text" class="form-control" name="timeRequired" id="field_timeRequired"
+                [(ngModel)]="product.timeRequired"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isPackagingProvided">Is Packaging Provided</label>
+            <input type="checkbox" class="form-control" name="isPackagingProvided" id="field_isPackagingProvided"
+                [(ngModel)]="product.isPackagingProvided"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_minOrderQuantity">Min Order Quantity</label>
+            <input type="number" class="form-control" name="minOrderQuantity" id="field_minOrderQuantity"
+                [(ngModel)]="product.minOrderQuantity"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unit">Unit</label>
+            <input type="text" class="form-control" name="unit" id="field_unit"
+                [(ngModel)]="product.unit"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_vendorId">Vendor Id</label>
+            <input type="text" class="form-control" name="vendorId" id="field_vendorId"
+                [(ngModel)]="product.vendorId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_subCategory">Sub Category</label>
+            <input type="text" class="form-control" name="subCategory" id="field_subCategory"
+                [(ngModel)]="product.subCategory"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

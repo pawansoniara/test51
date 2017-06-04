@@ -1,0 +1,88 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "productName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "saltName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "packagingType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitPrice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quntity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "composition",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "formulation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imageId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ratings",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "eta",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "timeRequired",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isPackagingProvided",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "minOrderQuantity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vendorId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subCategory",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "product",
+    "pagination": "infinite-scroll"
+}

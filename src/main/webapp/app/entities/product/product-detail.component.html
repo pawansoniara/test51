@@ -1,0 +1,93 @@
+
+<div *ngIf="product">
+    <h2><span>Product</span> {{product.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Product Name</span></dt>
+        <dd>
+            <span>{{product.productName}}</span>
+        </dd>
+        <dt><span>Salt Name</span></dt>
+        <dd>
+            <span>{{product.saltName}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{product.description}}</span>
+        </dd>
+        <dt><span>Packaging Type</span></dt>
+        <dd>
+            <span>{{product.packagingType}}</span>
+        </dd>
+        <dt><span>Unit Price</span></dt>
+        <dd>
+            <span>{{product.unitPrice}}</span>
+        </dd>
+        <dt><span>Quntity</span></dt>
+        <dd>
+            <span>{{product.quntity}}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+            <span>{{product.category}}</span>
+        </dd>
+        <dt><span>Composition</span></dt>
+        <dd>
+            <span>{{product.composition}}</span>
+        </dd>
+        <dt><span>Formulation</span></dt>
+        <dd>
+            <span>{{product.formulation}}</span>
+        </dd>
+        <dt><span>Image Id</span></dt>
+        <dd>
+            <span>{{product.imageId}}</span>
+        </dd>
+        <dt><span>Ratings</span></dt>
+        <dd>
+            <span>{{product.ratings}}</span>
+        </dd>
+        <dt><span>Eta</span></dt>
+        <dd>
+            <span>{{product.eta | date:'medium'}}</span>
+        </dd>
+        <dt><span>Time Required</span></dt>
+        <dd>
+            <span>{{product.timeRequired}}</span>
+        </dd>
+        <dt><span>Is Packaging Provided</span></dt>
+        <dd>
+            <span>{{product.isPackagingProvided}}</span>
+        </dd>
+        <dt><span>Min Order Quantity</span></dt>
+        <dd>
+            <span>{{product.minOrderQuantity}}</span>
+        </dd>
+        <dt><span>Unit</span></dt>
+        <dd>
+            <span>{{product.unit}}</span>
+        </dd>
+        <dt><span>Vendor Id</span></dt>
+        <dd>
+            <span>{{product.vendorId}}</span>
+        </dd>
+        <dt><span>Sub Category</span></dt>
+        <dd>
+            <span>{{product.subCategory}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'product/'+ product.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
