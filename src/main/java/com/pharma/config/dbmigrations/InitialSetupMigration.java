@@ -5,15 +5,12 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.time.Instant;
 
-import org.h2.engine.DbObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
-import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
