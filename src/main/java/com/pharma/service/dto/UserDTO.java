@@ -52,6 +52,8 @@ public class UserDTO {
     private Instant lastModifiedDate;
 
     private Set<String> authorities;
+    
+    private VendorDTO vendor;
 
     public UserDTO() {
         // Empty constructor needed for Jackson.
@@ -166,4 +168,12 @@ public class UserDTO {
             ", authorities=" + authorities +
             "}";
     }
+
+	public VendorDTO getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(VendorDTO vendor) {
+		this.vendor = vendor;
+	}
 }

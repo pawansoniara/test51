@@ -16,13 +16,13 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th> 
             <th jhiSortBy="name"><span>Name</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="companyName"><span>Company Name</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="address"><span>Address</span> <span class="fa fa-sort"></span></th>
+            <!-- <th jhiSortBy="address"><span>Address</span> <span class="fa fa-sort"></span></th> -->
             <th jhiSortBy="city"><span>City</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="state"><span>State</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="pincode"><span>Pincode</span> <span class="fa fa-sort"></span></th>
+            <!-- <th jhiSortBy="pincode"><span>Pincode</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="mobile"><span>Mobile</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="bioDlNo"><span>Bio Dl No</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="nonBioDlNo"><span>Non Bio Dl No</span> <span class="fa fa-sort"></span></th>
@@ -30,10 +30,10 @@
             <th jhiSortBy="certification"><span>Certification</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="webSite"><span>Web Site</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="aboutCompany"><span>About Company</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="email"><span>Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span>Email</span> <span class="fa fa-sort"></span></th> -->
             <th jhiSortBy="category"><span>Category</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="tin"><span>Tin</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="alternateMobile"><span>Alternate Mobile</span> <span class="fa fa-sort"></span></th>
+            <!-- <th jhiSortBy="tin"><span>Tin</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="alternateMobile"><span>Alternate Mobile</span> <span class="fa fa-sort"></span></th> -->
             <th></th>
             </tr>
             </thead>
@@ -42,10 +42,10 @@
                 <td><a [routerLink]="['../vendor', vendor.id ]">{{vendor.id}}</a></td>
                 <td>{{vendor.name}}</td>
                 <td>{{vendor.companyName}}</td>
-                <td>{{vendor.address}}</td>
+                <!-- <td>{{vendor.address}}</td> -->
                 <td>{{vendor.city}}</td>
                 <td>{{vendor.state}}</td>
-                <td>{{vendor.pincode}}</td>
+                <!-- <td>{{vendor.pincode}}</td>
                 <td>{{vendor.mobile}}</td>
                 <td>{{vendor.bioDlNo}}</td>
                 <td>{{vendor.nonBioDlNo}}</td>
@@ -53,10 +53,10 @@
                 <td>{{vendor.certification}}</td>
                 <td>{{vendor.webSite}}</td>
                 <td>{{vendor.aboutCompany}}</td>
-                <td>{{vendor.email}}</td>
+                <td>{{vendor.email}}</td> -->
                 <td>{{vendor.category}}</td>
-                <td>{{vendor.tin}}</td>
-                <td>{{vendor.alternateMobile}}</td>
+                <!-- <td>{{vendor.tin}}</td>
+                <td>{{vendor.alternateMobile}}</td> -->
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
